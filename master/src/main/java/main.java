@@ -10,7 +10,10 @@ public class main {
         printStringMultipleTimes("Test", 3);
         isLeapYear(2024);
         switchArray(new int[] {1, 1, 0, 0, 1, 0, 1, 1, 0, 0});
-
+        fillArray();
+        doubleNumberLessSix(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1});
+        makeDiagonalWith1(new int[10][10]);
+        makeAndFillArray(3, 1);
     }
 
     public static void printThreeWords() {
@@ -84,5 +87,52 @@ public class main {
         //for (int i : arr) {
             //System.out.print(i + " ");
         //}
+    }
+
+    public static void fillArray(){
+        int[] arr = new int[100];
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = i + 1;
+        }
+        //for (int i : arr) {
+            //System.out.print(i + " ");
+        //}
+    }
+
+    public static void doubleNumberLessSix(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (arr[i] < 6) ? arr[i]*2 : arr[i];
+        }
+        //for (int i : arr) {
+            //System.out.print(i + " ");
+        //}
+    }
+
+    public static void makeDiagonalWith1(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++){
+                arr[i][j] = (i == j || i + j == arr.length - 1) ? 1 : 0;
+            }
+                }
+//       for (int i = 0; i < arr.length; i++) {
+//           for (int j = 0; j < arr.length; j++){
+//               arr[i][j] = (i + j == 9) ? 1 : 0;
+//            }
+//        }
+//
+//            for (int i = 0; i < arr.length; i++) {
+//                for (int j = 0; j < arr[i].length; j++) {
+//                    System.out.print(arr[i][j] + "\t");
+//                }
+//                System.out.println();
+//            }
+    }
+
+    public static void makeAndFillArray(int len, int initialValue) {
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = initialValue;
+            //System.out.print(arr[i] + " ");
+        }
     }
 }
