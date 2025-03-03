@@ -1,5 +1,7 @@
 interface Figure {
-    double calculatePerimeter();
+    default double calculatePerimeter() {
+        return 0.0;
+    }
     String getFillColor();
     String getBorderColor();
     double calculateArea();
