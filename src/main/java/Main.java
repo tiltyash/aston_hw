@@ -4,10 +4,11 @@ public class Main {
             throw new MyArraySizeException("Array is not 4x4");
         }
 
+	int sum = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
                 try {
-                    Integer.parseInt(array[i][j]);
+                    sum += Integer.parseInt(array[i][j]);
                 }
                 catch (NumberFormatException e) {
                     throw new MyArrayDataException("Data is not type of int: [" + i + "][" + j + "]");
