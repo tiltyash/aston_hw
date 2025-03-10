@@ -5,7 +5,7 @@ public class Main {
         }
 
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j <array[0].length; j++) {
+            for (int j = 0; j < array[0].length; j++) {
                 try {
                     Integer.parseInt(array[i][j]);
                 }
