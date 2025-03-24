@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43652e9f-74bb-4f5b-9b6a-84637d03ff7a" name="Changes" comment="" />
+    <list default="true" id="fd0a0a84-0e76-42d1-9c2e-c96d9fe4d987" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2uMXirjEQ0QFvlpwNjZ6YDCDkO6" />
+  <component name="ProjectId" id="2umKsXPXBBFIqugqfjiLRnM9JjY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,32 +28,69 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Lesson_9" />
+  <component name="RunManager" selected="TestNG.CompareTwoNumbersTestNG">
+    <configuration name="ArithmeticOperationsTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_12_testng" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArithmeticOperationsTestNG" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompareTwoNumbersTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_12_testng" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompareTwoNumbersTestNG" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FactorialTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_12_testng" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FactorialTestNG" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleAreaTestNG" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_12_testng" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TriangleAreaTestNG" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.CompareTwoNumbersTestNG" />
+        <item itemvalue="TestNG.ArithmeticOperationsTestNG" />
+        <item itemvalue="TestNG.TriangleAreaTestNG" />
+        <item itemvalue="TestNG.FactorialTestNG" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="43652e9f-74bb-4f5b-9b6a-84637d03ff7a" name="Changes" comment="" />
-      <created>1742059549442</created>
+      <changelist id="fd0a0a84-0e76-42d1-9c2e-c96d9fe4d987" name="Changes" comment="" />
+      <created>1742848519522</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1742059549442</updated>
+      <updated>1742848519522</updated>
     </task>
     <servers />
   </component>
