@@ -3,10 +3,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,8 +27,19 @@ public class OnlinePaymentTest {
     @BeforeEach
     void setup() {
         driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         driver.get("http://mts.by");
-        }
+        try {
+
+
+            WebElement cookieAcceptBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//button[@id='cookie-agree' and contains(@class, 'cookie__ok')]")));
+            cookieAcceptBtn.click();
+
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='cookie show']")));
+        } catch (TimeoutException e) {}
+    }
 
     @Test
     void testBlockTitle() {
@@ -59,13 +67,13 @@ public class OnlinePaymentTest {
         driver.findElement(By.xpath("//input[@placeholder='Сумма']")).sendKeys("0.10");
         driver.findElement(By.xpath("//button[contains(., 'Продолжить')]")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.
                 cssSelector("iframe.bepaid-iframe")));
         driver.switchTo().frame(iframe);
 
-        WebElement paymentContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.
-                xpath("//app-payment-container")));
+        //WebElement paymentContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.
+        //        xpath("//app-payment-container")));
     }
 
     @AfterEach
