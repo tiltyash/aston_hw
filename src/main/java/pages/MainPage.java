@@ -52,10 +52,6 @@ public class MainPage {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//ul[contains(@class, 'select__list')]")));
-
-//        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
-//                By.xpath(String.format("//li[contains(@class, 'select__item')]//p[contains(., '%s')]", optionName))));
-//        option.click();
     }
 
     public String getPhoneFieldPlaceholder() {
