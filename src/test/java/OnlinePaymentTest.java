@@ -47,6 +47,11 @@ public class OnlinePaymentTest {
     @Description("Проверяем, что заголовок блока платежей соответствует ожидаемому")
     @Severity(SeverityLevel.NORMAL)
     void testBlockTitle() {
+        checkPaymentBlockTitle();
+    }
+
+    @Step("Проверить заголовок блока платежей")
+    protected void checkPaymentBlockTitle() {
         assertEquals("Онлайн пополнение\nбез комиссии", mainPage.getPaymentBlockTitle());
     }
 
@@ -55,6 +60,11 @@ public class OnlinePaymentTest {
     @Description("Проверяем, что все логотипы платежных систем отображаются")
     @Severity(SeverityLevel.NORMAL)
     void testPaymentLogos() {
+        verifyPaymentLogosDisplayed();
+    }
+
+    @Step("Проверить отображение логотипов платежных систем")
+    protected void verifyPaymentLogosDisplayed() {
         mainPage.getPaymentLogos().forEach(logo -> assertTrue(logo.isDisplayed()));
     }
 
@@ -64,7 +74,16 @@ public class OnlinePaymentTest {
     @Severity(SeverityLevel.NORMAL)
     void testDetailsLink() {
         String initialUrl = mainPage.getCurrentUrl();
+        clickDetailsLink();
+        verifyUrlChanged(initialUrl);
+    }
+    @Step("Кликнуть на ссылку 'Подробнее'")
+    protected void clickDetailsLink() {
         mainPage.clickDetailsLink();
+    }
+
+    @Step("Проверить изменение URL")
+    protected void verifyUrlChanged(String initialUrl) {
         assertNotEquals(initialUrl, mainPage.getCurrentUrl());
     }
 
@@ -73,17 +92,34 @@ public class OnlinePaymentTest {
     @Description("Проверяем плейсхолдеры полей ввода для разных типов платежей")
     @Severity(SeverityLevel.NORMAL)
     void testEmptyFieldsPlaceholders() {
+        verifyDefaultPlaceholders();
+        verifyInternetOptionPlaceholders();
+        verifyInstallmentOptionPlaceholders();
+        verifyDebtOptionPlaceholders();
+    }
+
+    @Step("Проверить плейсхолдеры по умолчанию")
+    protected void verifyDefaultPlaceholders() {
         assertEquals("Номер телефона", mainPage.getPhoneFieldPlaceholder());
         assertEquals("Сумма", mainPage.getAmountFieldPlaceholder());
+    }
 
+    @Step("Проверить плейсхолдеры для опции 'Домашний интернет'")
+    protected void verifyInternetOptionPlaceholders() {
         mainPage.selectPaymentOption("Домашний интернет");
         assertEquals("Номер абонента", mainPage.getSubscriberFieldPlaceholder());
         assertEquals("Сумма", mainPage.getAmountFieldPlaceholder());
+    }
 
+    @Step("Проверить плейсхолдеры для опции 'Рассрочка'")
+    protected void verifyInstallmentOptionPlaceholders() {
         mainPage.selectPaymentOption("Рассрочка");
         assertEquals("Номер счета на 44", mainPage.getInstallmentPlanFieldPlaceholder());
         assertEquals("Сумма", mainPage.getAmountFieldPlaceholder());
+    }
 
+    @Step("Проверить плейсхолдеры для опции 'Задолженность'")
+    protected void verifyDebtOptionPlaceholders() {
         mainPage.selectPaymentOption("Задолженность");
         assertEquals("Номер счета на 2073", mainPage.getDebtFieldPlaceholder());
         assertEquals("Сумма", mainPage.getAmountFieldPlaceholder());
@@ -95,24 +131,45 @@ public class OnlinePaymentTest {
     @Severity(SeverityLevel.CRITICAL)
     @Story("Оплата услуг связи")
     void testPaymentForm() {
+        fillPaymentForm();
+        switchToPaymentFrame();
+        verifyPaymentDetails();
+        verifyCardFormPlaceholders();
+        verifyPaymentSystemIcons();
+    }
+
+    @Step("Заполнить форму платежа")
+    protected void fillPaymentForm() {
         mainPage.selectPaymentOption("Услуги связи");
         mainPage.enterPhoneNumber("297777777");
         mainPage.enterAmount("0.10");
         mainPage.clickContinueButton();
+    }
 
+    @Step("Переключиться на фрейм оплаты")
+    protected void switchToPaymentFrame() {
         paymentFrame.switchToFrame();
+    }
 
+    @Step("Проверить детали платежа")
+    protected void verifyPaymentDetails() {
         assertEquals("0.10 BYN", paymentFrame.getPaymentAmount());
         assertEquals("Оплатить 0.10 BYN", paymentFrame.getPayButtonText());
         assertTrue(paymentFrame.getPaymentDescription().contains("Услуги связи"));
         assertTrue(paymentFrame.getPaymentDescription().contains("375297777777"));
+    }
 
+    @Step("Проверить плейсхолдеры полей карты")
+    protected void verifyCardFormPlaceholders() {
         Map<String, String> placeholders = paymentFrame.getCardInputPlaceholders();
         assertEquals("Номер карты", placeholders.get("cardNumber"));
         assertEquals("Срок действия", placeholders.get("expiryDate"));
         assertEquals("CVC", placeholders.get("cvc"));
         assertEquals("Имя держателя (как на карте)", placeholders.get("cardHolder"));
+    }
 
+    @Step("Проверить отображение иконок платежных систем")
+    protected void verifyPaymentSystemIcons() {
         assertTrue(paymentFrame.arePaymentSystemIconsDisplayed());
     }
 
